@@ -102,7 +102,6 @@ if image is not None:
 
     # Show prediction
     st.markdown(f"### Predicted Class: **{class_name}**")
-    st.markdown(f"**Confidence:** {confidence:.2%}")
     st.success("Classification complete.")
 
 # Info section
