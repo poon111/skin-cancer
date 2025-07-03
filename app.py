@@ -4,6 +4,7 @@ import numpy as np
 from ultralytics import YOLO
 import gdown
 import os
+from PIL import Image
 
 # Page configuration
 st.set_page_config(page_title="Skin Cancer Classification", layout="wide")
@@ -72,19 +73,27 @@ st.markdown("""สามารถตรวจมะเร็งผิวหน�
 - Squamous cell carcinoma  
 """, unsafe_allow_html=True)
 
+# Camera input
+camera_image = st.camera_input("Take a photo using your webcam")
+
 # File uploader
 uploaded_file = st.file_uploader("Upload an image (JPG, PNG, JPEG)", type=["jpg", "png", "jpeg"])
 
-if uploaded_file is not None:
-    # Read and decode the uploaded image
-    file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-    image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+# Determine image source
+image = None
+if camera_image is not None:
+    image = Image.open(camera_image)
+elif uploaded_file is not None:
+    image = Image.open(uploaded_file)
 
-    # Show uploaded image (resized)
-    st.image(image, channels="BGR", caption="Uploaded Image", width=500)
+# Process image if available
+if image is not None:
+    image_np = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+
+    st.image(image_np, channels="BGR", caption="Input Image", width=500)
 
     # Run classification
-    results = model(image)
+    results = model(image_np)
 
     # Get predicted class
     class_id = int(results[0].probs.top1)
@@ -93,8 +102,10 @@ if uploaded_file is not None:
 
     # Show prediction
     st.markdown(f"### Predicted Class: **{class_name}**")
+    st.markdown(f"**Confidence:** {confidence:.2%}")
     st.success("Classification complete.")
 
+# Info section
 st.markdown("""**สาเหตุและปัจจัยเสี่ยง**
 
 - โดนแสงแดดนานโดยไม่ป้องกัน  
