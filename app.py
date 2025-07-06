@@ -91,7 +91,7 @@ elif uploaded_file is not None:
 if image is not None:
     image_np = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
 
-    st.image(image_np, channels="BGR", caption="Input Image", use_column_width=True)
+    st.image(image_np, channels="BGR", caption="Input Image", use_container_width=True)
 
     # Run classification
     results = model(image_np)
