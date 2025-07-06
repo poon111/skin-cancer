@@ -6,6 +6,7 @@ import gdown
 import os
 from PIL import Image
 
+
 # Page configuration
 st.set_page_config(page_title="Skin Cancer Classification", layout="wide")
 
@@ -59,6 +60,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+video_url = "https://drive.google.com/uc?export=download&id=1B2fznnDGu9xwYjjspEauyjvkF4umdvBg"
+st.video(video_url)
 # Title
 st.title("Skin Cancer Classification")
 
