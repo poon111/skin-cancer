@@ -60,21 +60,20 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-video_url = "https://drive.google.com/uc?export=download&id=1B2fznnDGu9xwYjjspEauyjvkF4umdvBg"
-st.video(video_url)
+
 # Title
 st.title("Skin Cancer Classification")
 
 # Description
 st.markdown("""
-มะเร็งผิวหนัง คือ โรคที่เกิดจากเซลล์ผิวหนังเติบโตผิดปกติ ส่วนใหญ่เกิดจากการโดนแสงแดดมากเกินไป โดยเฉพาะแสง UV ซึ่งอาจทำให้เซลล์ผิวเสียหายและกลายเป็นมะเร็งได้.
+    **มะเร็งผิวหนัง** คือ โรคที่เกิดจากเซลล์ผิวหนังเติบโตผิดปกติ ส่วนใหญ่เกิดจากการโดนแสงแดดมากเกินไป โดยเฉพาะแสง UV ซึ่งอาจทำให้เซลล์ผิวเสียหายและกลายเป็นมะเร็งได้.
 """, unsafe_allow_html=True)
 
-st.markdown("""สามารถตรวจมะเร็งผิวหนังชนิด:
+st.markdown("""**สามารถตรวจมะเร็งผิวหนังชนิด:**
 
-- Melanoma  
-- Basal cell carcinoma  
-- Squamous cell carcinoma  
+    - Melanoma  
+    - Basal cell carcinoma  
+    - Squamous cell carcinoma  
 """, unsafe_allow_html=True)
 
 # Camera input
