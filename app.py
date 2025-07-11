@@ -11,7 +11,7 @@ from PIL import Image
 st.set_page_config(page_title="Skin Cancer Classification", layout="wide")
 
 # Model download from Google Drive
-MODEL_URL = "https://drive.google.com/uc?id=1FP25ISYt0HlfBcrjQnVMpjmjie1TjKMM"
+MODEL_URL = "https://drive.google.com/uc?id=18bLT5mDOm-I5vVUReN8SldtZS9GJcCWT"
 MODEL_PATH = "best.pt"
 
 @st.cache_resource
